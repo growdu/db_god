@@ -10,15 +10,16 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '数据库修仙',
-  tagline: '用修仙学技术',
+  title: 'db_god',
+  tagline: '像修仙一样学习数据库，成仙成神成大佬！',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://example.com',
+  url: 'https://github.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/db_god',
+  //baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -55,34 +56,31 @@ const config = {
       }),
     ],
   ],
-
+  markdown:{
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
       docs: {
         sidebar: {
-          hideable: true,
-          autoCollapseCategories: true,
+          autoCollapseCategories: true, // 启用自动折叠
+          hideable: true,               // 可选：允许手动折叠侧边栏
         },
       },
+      // Replace with your project's social card
+      image: 'img/docusaurus-social-card.jpg',
       navbar: {
-        title: '数据库修仙之旅',
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
-        },
         items: [
-          // {
-          //   type: 'docSidebar',
-          //   to: '/docs/intro',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'left',
-          //   label: '数据库修仙指南',
-          // },
           {
-            href: 'https://github.com/growdu',
+            type: 'docSidebar',
+            sidebarId: 'tutorialSidebar',
+            position: 'left',
+            label: '数据库修仙指南',
+          },
+          {
+            href: 'https://github.com/growdu/k8s_god',
             label: 'GitHub',
             position: 'right',
           },
@@ -90,10 +88,32 @@ const config = {
       },
       footer: {
         style: 'dark',
-        links: [],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} growdu, Inc. Built with Docusaurus.`,
       },
       prism: {
+        additionalLanguages: [
+          'java',
+          'latex',
+          'haskell',
+          'matlab',
+          'PHp',
+          'powershell',
+          'bash',
+          'diff',
+          'json',
+          'scss',
+        ],
+        magicComments: [
+          {
+            className: 'theme-code-block-highlighted-line',
+            line: 'highlight-next-line',
+            block: {start: 'highlight-start', end: 'highlight-end'},
+          },
+          {
+            className: 'code-block-error-line',
+            line: 'This will error',
+          },
+        ],
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
       },
